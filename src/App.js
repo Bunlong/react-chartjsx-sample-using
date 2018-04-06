@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { Line, Bar, Pie, Radar, PolarArea, Doughnut, HorizontalBar } from 'react-chartjsx';
 
 class App extends Component {
