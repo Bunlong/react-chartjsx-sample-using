@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Line, Bar, Pie, Radar, PolarArea, Doughnut, HorizontalBar } from 'react-chartjsx';
+import { Line, Bar, Pie, Radar, PolarArea, Doughnut, HorizontalBar, Bubble } from 'react-chartjsx';
 
 class App extends Component {
   constructor(props) {
@@ -147,6 +147,50 @@ class App extends Component {
           label: "Population (millions)",
           backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
           data: [2478,5267,734,784,433]
+        }
+      ]
+    },
+    bubbleChartData: {
+      datasets: [
+        {
+          label: ["China"],
+          backgroundColor: "rgba(255,221,50,0.2)",
+          borderColor: "rgba(255,221,50,1)",
+          data: [{
+            x: 21269017,
+            y: 5.245,
+            r: 15
+          }]
+        }, 
+        {
+          label: ["Denmark"],
+          backgroundColor: "rgba(60,186,159,0.2)",
+          borderColor: "rgba(60,186,159,1)",
+          data: [{
+            x: 258702,
+            y: 7.526,
+            r: 10
+          }]
+        }, 
+        {
+          label: ["Germany"],
+          backgroundColor: "rgba(0,0,0,0.2)",
+          borderColor: "#000",
+          data: [{
+            x: 3979083,
+            y: 6.994,
+            r: 15
+          }]
+        }, 
+        {
+          label: ["Japan"],
+          backgroundColor: "rgba(193,46,12,0.2)",
+          borderColor: "rgba(193,46,12,1)",
+          data: [{
+            x: 4931877,
+            y: 5.921,
+            r: 15
+          }]
         }
       ]
     }
@@ -340,6 +384,53 @@ class App extends Component {
     })
   }
 
+  clickBubble() {
+    this.setState({
+      datasets: [
+        {
+          label: ["China"],
+          backgroundColor: "rgba(255,221,50,0.2)",
+          borderColor: "rgba(255,221,50,1)",
+          data: [{
+            x: 21269017,
+            y: 5.245,
+            r: 15
+          }]
+        }, 
+        {
+          label: ["Denmark"],
+          backgroundColor: "rgba(60,186,159,0.2)",
+          borderColor: "rgba(60,186,159,1)",
+          data: [{
+            x: 258702,
+            y: 7.526,
+            r: 10
+          }]
+        }, 
+        {
+          label: ["Germany"],
+          backgroundColor: "rgba(0,0,0,0.2)",
+          borderColor: "#000",
+          data: [{
+            x: 3979083,
+            y: 6.994,
+            r: 15
+          }]
+        }, 
+        {
+          label: ["Japan"],
+          backgroundColor: "rgba(193,46,12,0.2)",
+          borderColor: "rgba(193,46,12,1)",
+          data: [{
+            x: 4931877,
+            y: 5.921,
+            r: 35
+          }]
+        }
+      ]
+    })
+  }
+
   render() {
     const chartOptions = {
       responsive: false
@@ -392,6 +483,11 @@ class App extends Component {
                        width={800} 
                        height={400} />
         <button onClick={this.clickHorizontalBar.bind(this)}>Click horizontal bar</button>
+        <Bubble data={this.state.bubbleChartData} 
+                options={chartOptions} 
+                width={800} 
+                height={400} />
+        <button onClick={this.clickBubble.bind(this)}>Click bubble</button>
       </div>
     );
   }
