@@ -581,6 +581,9 @@ class App extends Component {
     })
   }
 
+  componentDidMount() {
+  }
+
   render() {
     const chartOptions = {
       responsive: false
@@ -641,7 +644,14 @@ class App extends Component {
         <Scatter data={this.state.scatterChartData} 
                  options={chartOptions} 
                  width={800} 
-                 height={400} />
+                 height={400}
+                 getDatasetAtEvent={(dataset, e) => {console.log(dataset)}} 
+                 getElementAtEvent={(elems, e) => {console.log(elems)}} 
+                 getElementsAtEvent={(elems, e) => {console.log(elems)}} 
+                 onElementsClick={(elems, e) => {console.log(elems)}}
+                 getChart={(chart) => {console.log(chart)}}
+                 getCanvas={(canvas) => {console.log(canvas)}}
+        />
         <button onClick={this.clickScatter.bind(this)}>Click scatter</button>
       </div>
     );
