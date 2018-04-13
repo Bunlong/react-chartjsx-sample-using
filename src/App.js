@@ -648,7 +648,6 @@ class App extends Component {
                  getDatasetAtEvent={(dataset, e) => {console.log(dataset)}} 
                  getElementAtEvent={(elems, e) => {console.log(elems)}} 
                  getElementsAtEvent={(elems, e) => {console.log(elems)}} 
-                 onElementsClick={(elems, e) => {console.log(elems)}}
                  getChart={(chart) => {console.log(chart)}}
                  getCanvas={(canvas) => {console.log(canvas)}}
         />
